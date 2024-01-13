@@ -8,6 +8,7 @@ const SignUp = () => {
     const urlRef = useRef(null)
     const passwordRef = useRef(null)
     const [error, setError] = useState(null)
+    const api_url = process.env.REACT_APP_API_URL
 
     useEffect(() => {
         if (localStorage.getItem('JOB-APP-DATA')) {
@@ -28,7 +29,7 @@ const SignUp = () => {
     const login = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/user/newUser', {
+            const response = await fetch(`${api_url}/user/newUser`, {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json',
