@@ -1,0 +1,115 @@
+@import "../../styles/plugins";
+
+.container {
+  width: 100%;
+  height: 100vh;
+  @include flex-r;
+  position: relative;
+  overflow: hidden;
+  .error {
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    font-weight: 900;
+    transition: all 500ms;
+    background: #fc8080;
+    left: 10px;
+  }
+}
+
+.left_section {
+  flex: 0.6;
+  height: 100%;
+  flex-direction: column;
+  @include flex;
+  @media (max-width: 768px) {
+    flex: 1;
+  }
+  .inner_container {
+    width: 80%;
+    @include flex-cus(center, flex-start, column);
+    gap: 20px;
+    .header {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .desc {
+      color: #525252;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .inputBox {
+      width: min(499px, 100%);
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 5px;
+      border: 1px solid #c2c2c2;
+      background: #fff;
+    }
+    .signin_btn {
+      outline: none;
+      border: none;
+      width: 157px;
+      height: 43.923px;
+      border-radius: 5px;
+      background: #ed5353;
+      @include flex;
+      color: #fff;
+    }
+    .link_txt {
+      font-size: 14px;
+      a {
+        font-weight: 500;
+        line-height: 144.023%;
+        text-decoration-line: underline;
+      }
+      @media (max-width: 768px) {
+        font-size: 10px;
+        a {
+          font-size: 10px;
+        }
+      }
+    }
+    .btnset {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin-top: 20px;
+      .cancelBtn {
+        width: 120px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        background: transparent;
+        border: 1px solid #ed5353;
+        color: #ed5353;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .updateBtn {
+        @extend .cancelBtn;
+        outline: none;
+        border: none;
+        background: #ed5353;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.right_section {
+  flex: 0.4;
+  height: 100%;
+  background-image: url("../../assets/images/background.png");
+  background-position: center;
+  background-size: cover;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

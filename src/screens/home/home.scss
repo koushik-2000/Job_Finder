@@ -1,0 +1,304 @@
+@import "../../styles/plugins";
+
+.home_container {
+  width: 100%;
+  min-height: 100svh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .header {
+    width: 100%;
+    height: 130px;
+    padding: 0 50px;
+    background-image: url("../../assets/images/header.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include flex-cus(space-between, center, row);
+    @media (max-width: 768px) {
+      @include flex-cus(space-around, flex-start, column);
+    }
+    color: #fff;
+    .row {
+      @include flex-r;
+      gap: 20px;
+    }
+    &_text {
+      font-size: 24px;
+    }
+    .logout_btn {
+      width: 93px;
+      height: 36px;
+      @include flex;
+      border-radius: 7px;
+      border: 2px solid #fff;
+      cursor: pointer;
+    }
+    .profile_img {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+    }
+  }
+}
+
+.search_container {
+  width: max(70%, 320px);
+  height: 200px;
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0px 0px 22px 4px rgba(255, 32, 32, 0.25);
+  margin: 20px 0;
+  @include flex-c;
+  .search_box {
+    width: 80%;
+    height: 42px;
+    border-radius: 9px;
+    border: 1.8px solid #e3e3e3;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0 20px;
+    .search_input {
+      outline: none;
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .filter {
+    width: 80%;
+    @include flex-cus(space-between, center, row);
+    .clearBtn {
+      color: #ed5353;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .addJobBtn {
+      margin-top: 20px;
+      width: 120px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #ed5353;
+      border-radius: 8px;
+    }
+  }
+}
+
+.jobs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px 0 100px;
+  align-items: center;
+  .job_card {
+    width: max(70%, 320px);
+    min-height: 130px;
+    height: auto;
+    background: #fff;
+    box-shadow: 0px 0px 22px 2px rgba(255, 32, 32, 0.25);
+    padding: 20px;
+    @include flex;
+    justify-content: space-between;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+  .left_pane {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    .row1 {
+      div {
+        display: inline-block;
+        margin-right: 20px;
+        img {
+          vertical-align: middle;
+          margin-right: 10px;
+          width: 20px;
+        }
+        p {
+          font-size: 14px;
+          color: #9c9c9c;
+          font-weight: 600;
+          display: inherit;
+        }
+      }
+      @media (max-width: 768px) {
+        div p {
+          font-size: 10px;
+        }
+      }
+    }
+    .row2 p {
+      display: inline-block;
+      margin-right: 20px;
+      color: #ed5353;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+  .right_pane {
+    width: 100%;
+    @include flex-c;
+    gap: 20px;
+    align-items: flex-end;
+    .skills {
+      @include flex-r;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 5px;
+      .skill {
+        padding: 5px 10px;
+        font-size: 10px;
+        border-radius: 1.433px;
+        background: #fee;
+      }
+    }
+    .btns {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+      gap: 20px;
+      .view_btn {
+        width: 100px;
+        height: 30px;
+        background: #ed5353;
+        @include flex;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 4px;
+      }
+      .edit_btn {
+        @extend .view_btn;
+        background: transparent;
+        border: 1px solid #ed5353;
+        color: #ed5353;
+      }
+    }
+  }
+}
+
+.jobs::-webkit-scrollbar {
+  display: none;
+}
+
+.job_container {
+  @extend .home_container;
+  height: auto;
+  background: #ffefef;
+  .job_description {
+    width: max(70%, 320px);
+    min-height: 100px;
+    height: auto;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0px 4px 23px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: -10px;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .job_templete {
+    width: max(70%, 320px);
+    height: auto;
+    margin-bottom: 100px;
+    background: #fff;
+    box-shadow: 0px 4px 23px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    .job_period {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 15px;
+    }
+    .row {
+      width: 100%;
+      @include flex-cus(space-between, center, row);
+      .editJobBtn {
+        width: 120px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: #ed5353;
+        border-radius: 8px;
+      }
+      .job_title {
+        font-size: 32px;
+        font-weight: 600;
+      }
+    }
+
+    .job_location {
+      color: #ed5353;
+    }
+    .job_stipend {
+      color: #595959;
+      margin: 20px 30px 30px 0;
+      .fragment {
+        display: inline-block;
+        margin: 10px 20px 0 0;
+      }
+      .label {
+        img {
+          width: 20px;
+          vertical-align: middle;
+        }
+        p {
+          padding-left: 10px;
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+      .desc {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+    .about_company,
+    .about_job,
+    .additional_info {
+      h1 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      p {
+        color: #595959;
+        margin: 20px 0;
+        text-align: justify;
+      }
+    }
+    .skills_required {
+      h1 {
+        font-size: 18px;
+      }
+      .skills {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+        .skill {
+          background: #ffeeee;
+          color: #595959;
+          padding: 5px 10px;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+}
